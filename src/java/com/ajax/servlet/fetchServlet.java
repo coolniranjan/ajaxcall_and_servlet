@@ -19,32 +19,15 @@ import java.util.List;
  * @author PC
  */
 public class fetchServlet extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet fetchServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            
+     
             String dat = request.getParameter("dt");
             if (dat.equals("act")) {
                 Bean userinfo = new Bean();
-                List<Bean> lst = Dao.ShowUserInfo(userinfo);                
+                List<Bean>  lst = Dao.ShowUserInfo(userinfo);                
                 out.print("<table border='1' width='80%>'");
                 out.print("<tr><th>Name</th><th>Village</th></tr>");
                 for (Bean i : lst) {

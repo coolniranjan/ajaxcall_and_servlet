@@ -25,12 +25,7 @@ public class retriveServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet retriveServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
+            
 
             String name = request.getParameter("fname");
             String lname = request.getParameter("lname");
@@ -38,13 +33,11 @@ public class retriveServlet extends HttpServlet {
             Bean obj = new Bean(name, lname);
 
             int st = Dao.Save(obj);
-//            if (st>0) {
-//                
-//            }
-            out.print(st);
 
-            out.println("</body>");
-            out.println("</html>");
+            
+            
+            
+           
         }
     }
 
